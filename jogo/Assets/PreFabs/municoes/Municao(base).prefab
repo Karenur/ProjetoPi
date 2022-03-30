@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 0
   m_Name: Municao(base)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -146,5 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4b11684d8141244b02b4cdfda927c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempoVida: 5
   rbMunicao: {fileID: 1799131711245339830}
+  caminho:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}

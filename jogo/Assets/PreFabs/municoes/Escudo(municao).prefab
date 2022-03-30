@@ -64,6 +64,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5031963870876786452, guid: 12ca4f61bf930ae43b714b9e68bf50d1, type: 3}
+      propertyPath: saidaCanhao
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031963870876786452, guid: 12ca4f61bf930ae43b714b9e68bf50d1, type: 3}
       propertyPath: municaoRelativa
       value: 
       objectReference: {fileID: 6540744726263764268}

@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class SlotCanhao : MonoBehaviour, IDropHandler
 {
-    public DragAndDrop da;
+    
     [SerializeField] private RectTransform _transform;
     public Baralho baralho;
     public BancoDeMunicoes bm;
+   
 
     public GameObject canhao;
     public GameObject saidaCanhao;
@@ -25,12 +26,16 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         string nomeCarta = eventData.pointerDrag.GetComponent<Image>().sprite.name;
-        //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = _transform.anchoredPosition;
+
+       
+
         Debug.Log($"atirei {nomeCarta}");
         Debug.Log($"usando o {this.name} ");
+        
+
         if (name == "canhao1")
         {
-            canhao.transform.rotation = Quaternion.Euler(0,0,0);
+            canhao.transform.rotation = Quaternion.Euler(0,0,0);            
         }
         if (name == "canhao2")
         {
@@ -40,26 +45,34 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
         {
             canhao.transform.rotation = Quaternion.Euler(0,0,45);
         }
-
-        if (nomeCarta == "bolaFerro")
+        if (nomeCarta == "escudo(carta)")
         {
-            Instantiate(bm.cartasDisponiveis[0], saidaCanhao.transform);
+            Instantiate(bm.municoesDisponiveis[0], saidaCanhao.transform);
 
         }
-        if (nomeCarta == "broca")
+        if (nomeCarta == "broca(carta)")
         {
-            Instantiate(bm.cartasDisponiveis[1], saidaCanhao.transform);
+            Instantiate(bm.municoesDisponiveis[1], saidaCanhao.transform);
 
         }
-        if (nomeCarta == "escudo")
+        if (nomeCarta == "bolaFerro(carta)")
         {
-            Instantiate(bm.cartasDisponiveis[2], saidaCanhao.transform);
+            Instantiate(bm.municoesDisponiveis[2], saidaCanhao.transform);
 
-        }
+        }  
+        
 
 
         eventData.pointerDrag.GetComponent<Image>().sprite = null;
-        baralho.podebaralhar += 1;
+        baralho.podebaralhar += 1;       
         
     }
+    public void atirar()
+    {
+        
+        Debug.Log("atira");
+        Instantiate(bm.municoesDisponiveis[0], saidaCanhao.transform);
+
+    }
+
 }

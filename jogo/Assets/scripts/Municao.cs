@@ -5,23 +5,25 @@ using UnityEngine;
 public class Municao : MonoBehaviour
 {
 
-    public float tempo;
-    [SerializeField] private Rigidbody2D rb;
-   
+    public float tempoVida;
+    float tempo = 0;
 
+    public Rigidbody2D rbMunicao;
+    
     // Start is called before the first frame update
     void Start()
     {
-
-        rb = this.GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(1000,0));
+        
+        rbMunicao.AddForce(new Vector2(1000,0));
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         tempo += Time.deltaTime;
-       if(tempo >= 5)
+        if ( tempo >= tempoVida)
         {
             Destroy(this.gameObject);
         }

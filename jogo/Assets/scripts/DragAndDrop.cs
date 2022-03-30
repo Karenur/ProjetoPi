@@ -9,7 +9,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 {
     [SerializeField] private RectTransform _transform;
     [SerializeField] private CanvasGroup _canvasGroup;
-    public Baralho baralho;
+    
 
     //public Baralho baralho;
     public Vector2 posInicial;
@@ -48,11 +48,5 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         _transform.anchoredPosition = posInicial;
         
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        //if(eventData == baralho.canhaoes[1].name)
-
     }
 }

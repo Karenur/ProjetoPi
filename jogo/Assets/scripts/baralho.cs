@@ -7,7 +7,7 @@ public class Baralho : Local
 {
 
     public BancoDeMunicoes bm;
-    public List<GameObject> municoes;
+    public List<GameObject> slotMao;
     public List<GameObject> canhaoes;
 
     public int podebaralhar = 0;
@@ -16,20 +16,12 @@ public class Baralho : Local
     // Start is called before the first frame update
     void Start()
     {
-        cartas = new List<GameObject>();
-            
         
-        
-       
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-       
-        
 
     }
 
@@ -38,10 +30,10 @@ public class Baralho : Local
         
         if (podebaralhar == 5)
         {
-            for (int i = 0; i < municoes.Count; i++)
+            for (int i = 0; i < slotMao.Count; i++)
             {
                 int rnd = Random.Range(0, bm.cartasDisponiveis.Count);
-                municoes[i].GetComponent<Image>().sprite = bm.cartasDisponiveis[rnd].GetComponent<SpriteRenderer>().sprite;
+                slotMao[i].GetComponent<Image>().sprite = bm.cartasDisponiveis[rnd].GetComponent<SpriteRenderer>().sprite;
                 podebaralhar = 0;
             }
         }

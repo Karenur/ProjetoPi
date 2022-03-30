@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class BancoDeMunicoes : MonoBehaviour
 {
-
-    public List<GameObject> cartasDisponiveis;    
+    public List<GameObject> municoesDisponiveis;
+    public List<GameObject> cartasDisponiveis;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+
 
     }
 

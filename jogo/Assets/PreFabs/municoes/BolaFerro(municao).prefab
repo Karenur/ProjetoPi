@@ -7,10 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6741240961222148112, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
-      propertyPath: municaoRelativa
-      value: 
-      objectReference: {fileID: 7003415236551980017}
+    - target: {fileID: 73179864544014483, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 73179864544014483, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 73179864544014483, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -26,18 +30,6 @@ PrefabInstance:
     - target: {fileID: 7188220453530724133, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7188220453530724133, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.654
-      objectReference: {fileID: 0}
-    - target: {fileID: 7188220453530724133, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.654
-      objectReference: {fileID: 0}
-    - target: {fileID: 7188220453530724133, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.654
       objectReference: {fileID: 0}
     - target: {fileID: 7188220453530724133, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,3 +78,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3646511491944194866, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
   m_PrefabInstance: {fileID: 6028670550116372675}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &4294849355719983350
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7003415236551980017}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2

@@ -11,10 +11,10 @@ public class BancoDeMunicoes : MonoBehaviour
     public Transform saidaCanhao;
     public Transform Inimigo;
 
-    public GameObject weyPoints1;
-    public GameObject weyPoints2;
-    public GameObject weyPoints3;
-    public int nCanhao = 1;
+    //public GameObject weyPoints1;
+    //public GameObject weyPoints2;
+    //public GameObject weyPoints3;
+    //public int nCanhao = 1;
 
 
     // Start is called before the first frame update

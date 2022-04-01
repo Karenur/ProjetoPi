@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class SlotCanhao : MonoBehaviour, IDropHandler
 {
@@ -11,21 +12,22 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
     [SerializeField] private RectTransform _transform;
     public Baralho baralho;
     public BancoDeMunicoes bm;
+    [SerializeField] ControleCanhao controleCanhao;
+    [SerializeField] Municao municao;
 
     public GameObject canhao;
     public GameObject saidaCanhao;
     public float podeAtirar_;
     float velocidadeTiro_;
-    [SerializeField] ControleCanhao controleCanhao;
-    [SerializeField] Municao municao;
+    
 
-
+   
 
     // Start is called before the first frame update
     void Start()
     {
         _transform = this.GetComponent<RectTransform>();
-
+       
     }
     private void Update()
     {
@@ -36,30 +38,36 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        
+       
         string nomeCarta = eventData.pointerDrag.GetComponent<Image>().sprite.name;
+        
         if (podeAtirar_ >= velocidadeTiro_)
         {
+            int canhaoUsado;
             controleCanhao.podeAtirar = 0;
             eventData.pointerDrag.GetComponent<Image>().sprite = null;
             baralho.podebaralhar += 1;
             if (name == "canhao1")
             {
-                bm.nCanhao = 0;
-                canhao.transform.DORotate(new Vector3(0, 0, 0), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta); });
+                canhaoUsado = 1;
+                canhao.transform.DORotate(new Vector3(0, 0, 0), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                 Debug.Log("seguir caminho 1");
+                
+                
             }
             if (name == "canhao2")
             {
-                bm.nCanhao = 15;
-                canhao.transform.DORotate(new Vector3(0, 0, 15), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta); });
+                canhaoUsado = 2;
+                canhao.transform.DORotate(new Vector3(0, 0, 30), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                 Debug.Log("seguir caminho 2");
+                
             }
             if (name == "canhao3")
             {
-                bm.nCanhao = 45;
-                canhao.transform.DORotate(new Vector3(0, 0, 45), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta); });
+                canhaoUsado = 3;
+                canhao.transform.DORotate(new Vector3(0, 0, 45), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                 Debug.Log("seguir caminho 3");
+                
             }
 
 
@@ -67,29 +75,31 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
 
 
     }
-    public void Atirar(string nomeCarta_)
+    public void Atirar(string nomeCarta_, int slotCanhao_ )
     {
-
+        
         if (nomeCarta_ == "escudo(carta)")
-        {
-            
+        {            
             Instantiate(bm.municoesDisponiveis[0], saidaCanhao.transform);
-            
+            Debug.Log("Usando " + slotCanhao_);
+            municao = GameObject.Find(bm.municoesDisponiveis[0].name + "(Clone)").GetComponent<Municao>();
         }
         if (nomeCarta_ == "broca(carta)")
-        {
-            
+        {            
             Instantiate(bm.municoesDisponiveis[1], saidaCanhao.transform);
-            
+            Debug.Log("Usando " + slotCanhao_);
+            municao = GameObject.Find(bm.municoesDisponiveis[1].name + "(Clone)").GetComponent<Municao>();
         }
         if (nomeCarta_ == "bolaFerro(carta)")
         {
             
             Instantiate(bm.municoesDisponiveis[2], saidaCanhao.transform);
-            
+            Debug.Log("Usando " + slotCanhao_);
+            municao = GameObject.Find(bm.municoesDisponiveis[2].name + "(Clone)").GetComponent<Municao>();
         }
-
+        Debug.Log("Atire " + municao.name);
+        municao.EscolherCaminho(slotCanhao_);
     }
-    
 
+    
 }

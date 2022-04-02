@@ -50,7 +50,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
             if (name == "canhao1")
             {
                 canhaoUsado = 1;
-                canhao.transform.DORotate(new Vector3(0, 0, 0), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
+                canhao.transform.DORotate(new Vector3(0, 0, 10), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                 Debug.Log("seguir caminho 1");
                 
                 
@@ -75,31 +75,30 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
 
 
     }
-    public void Atirar(string nomeCarta_, int slotCanhao_ )
+    public void Atirar(string nomeCarta_, int slotCanhao_)
     {
-        
+
         if (nomeCarta_ == "escudo(carta)")
-        {            
+        {
             Instantiate(bm.municoesDisponiveis[0], saidaCanhao.transform);
             Debug.Log("Usando " + slotCanhao_);
             municao = GameObject.Find(bm.municoesDisponiveis[0].name + "(Clone)").GetComponent<Municao>();
         }
-        if (nomeCarta_ == "broca(carta)")
-        {            
+        if (nomeCarta_ == "lanca(carta)")
+        {
             Instantiate(bm.municoesDisponiveis[1], saidaCanhao.transform);
             Debug.Log("Usando " + slotCanhao_);
             municao = GameObject.Find(bm.municoesDisponiveis[1].name + "(Clone)").GetComponent<Municao>();
         }
         if (nomeCarta_ == "bolaFerro(carta)")
         {
-            
+
             Instantiate(bm.municoesDisponiveis[2], saidaCanhao.transform);
             Debug.Log("Usando " + slotCanhao_);
             municao = GameObject.Find(bm.municoesDisponiveis[2].name + "(Clone)").GetComponent<Municao>();
         }
         Debug.Log("Atire " + municao.name);
-        municao.EscolherCaminho(slotCanhao_);
+        municao._canhaoUsado = slotCanhao_;
     }
-
     
 }

@@ -7,6 +7,8 @@ public class BancoDeMunicoes : MonoBehaviour
     public List<GameObject> municoesDisponiveis;
     public List<GameObject> cartasDisponiveis;
 
+    public Sprite spriteVersoCarta;
+
     public float tempoVida;
     public Transform saidaCanhao;
     public Transform Inimigo;

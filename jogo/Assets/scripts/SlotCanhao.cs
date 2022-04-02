@@ -45,7 +45,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
         {
             int canhaoUsado;
             controleCanhao.podeAtirar = 0;
-            eventData.pointerDrag.GetComponent<Image>().sprite = null;
+            eventData.pointerDrag.GetComponent<Image>().sprite = bm.spriteVersoCarta;
             baralho.podebaralhar += 1;
             if (name == "canhao1")
             {

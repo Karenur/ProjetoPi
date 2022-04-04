@@ -19,15 +19,15 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
     public GameObject saidaCanhao;
     public float podeAtirar_;
     float velocidadeTiro_;
-    
 
-   
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         _transform = this.GetComponent<RectTransform>();
-       
+
     }
     private void Update()
     {
@@ -38,39 +38,41 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-       
+
         string nomeCarta = eventData.pointerDrag.GetComponent<Image>().sprite.name;
-        
-        if (podeAtirar_ >= velocidadeTiro_)
+        if (nomeCarta != "carta_verso")
         {
-            int canhaoUsado;
-            controleCanhao.podeAtirar = 0;
-            eventData.pointerDrag.GetComponent<Image>().sprite = bm.spriteVersoCarta;
-            baralho.podebaralhar += 1;
-            if (name == "canhao1")
+            if (podeAtirar_ >= velocidadeTiro_)
             {
-                canhaoUsado = 1;
-                canhao.transform.DORotate(new Vector3(0, 0, 10), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
-                Debug.Log("seguir caminho 1");
-                
-                
-            }
-            if (name == "canhao2")
-            {
-                canhaoUsado = 2;
-                canhao.transform.DORotate(new Vector3(0, 0, 30), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
-                Debug.Log("seguir caminho 2");
-                
-            }
-            if (name == "canhao3")
-            {
-                canhaoUsado = 3;
-                canhao.transform.DORotate(new Vector3(0, 0, 45), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
-                Debug.Log("seguir caminho 3");
-                
-            }
+                int canhaoUsado;
+                controleCanhao.podeAtirar = 0;
+                eventData.pointerDrag.GetComponent<Image>().sprite = bm.spriteVersoCarta;
+                baralho.podebaralhar += 1;
+                if (name == "canhao1")
+                {
+                    canhaoUsado = 1;
+                    canhao.transform.DORotate(new Vector3(0, 0, 10), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
+                    Debug.Log("seguir caminho 1");
 
 
+                }
+                if (name == "canhao2")
+                {
+                    canhaoUsado = 2;
+                    canhao.transform.DORotate(new Vector3(0, 0, 30), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
+                    Debug.Log("seguir caminho 2");
+
+                }
+                if (name == "canhao3")
+                {
+                    canhaoUsado = 3;
+                    canhao.transform.DORotate(new Vector3(0, 0, 45), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
+                    Debug.Log("seguir caminho 3");
+
+                }
+
+
+            }
         }
 
 
@@ -88,7 +90,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
         {
             Instantiate(bm.municoesDisponiveis[1], saidaCanhao.transform);
             Debug.Log("Usando " + slotCanhao_);
-            municao = GameObject.Find(bm.municoesDisponiveis[1].name + "(Clone)").GetComponent<Municao>();
+            municao = GameObject.Find(bm.municoesDisponiveis[1].name + "(Clone)").GetComponent<Municao>();            
         }
         if (nomeCarta_ == "bolaFerro(carta)")
         {
@@ -97,8 +99,9 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
             Debug.Log("Usando " + slotCanhao_);
             municao = GameObject.Find(bm.municoesDisponiveis[2].name + "(Clone)").GetComponent<Municao>();
         }
+
         Debug.Log("Atire " + municao.name);
         municao._canhaoUsado = slotCanhao_;
     }
-    
+
 }

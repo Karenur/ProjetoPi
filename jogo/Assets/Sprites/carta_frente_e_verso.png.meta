@@ -230,7 +230,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carta_frente_e_verso_6
+      name: carta_verso
       rect:
         serializedVersion: 2
         x: 16
@@ -251,7 +251,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carta_frente_e_verso_7
+      name: carta_frente
       rect:
         serializedVersion: 2
         x: 80
@@ -279,8 +279,8 @@ TextureImporter:
         y: 108
         width: 36
         height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -431,15 +431,15 @@ TextureImporter:
     nameFileIdTable:
       lanca(municao): 457311021
       carta_frente_e_verso_5: 639245416
+      carta_verso: -1798871794
       carta_frente_e_verso_8: 1505471328
       escudo(municao): 555475647
+      carta_frente: 136840071
       escudo(carta): -1129174759
       carta_frente_e_verso_2: -1228087989
-      carta_frente_e_verso_7: 136840071
       carta_frente_e_verso_3: 1630224977
       carta_frente_e_verso_0: 2001911532
       bolaFerro(carta): -1047144445
-      carta_frente_e_verso_6: -1798871794
       carta_frente_e_verso_4: 1658045212
       carta_frente_e_verso_1: 506059911
       bolaFerro(municao): 1831964843

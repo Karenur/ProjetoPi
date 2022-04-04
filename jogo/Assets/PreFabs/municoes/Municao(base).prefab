@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4b11684d8141244b02b4cdfda927c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MultiplicadorForcaTiro: 1
   forcaTiro: 5
   slotCanhao: 
   rbMunicao: {fileID: 1799131711245339830}

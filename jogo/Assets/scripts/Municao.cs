@@ -4,8 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 public class Municao : MonoBehaviour
 {
-    
 
+    public float MultiplicadorForcaTiro;
     public float forcaTiro;
     public string slotCanhao;
     
@@ -22,7 +22,7 @@ public class Municao : MonoBehaviour
         this.rbMunicao = GetComponent<Rigidbody2D>();
         this.gameObject.name = (this.gameObject.name+" ");
         caminho[0] = GameObject.Find("saidaTiro").transform.position;
-        caminho[4] = GameObject.Find("inimigo").transform.position;
+        caminho[4] = GameObject.Find("inimigo").transform.position;       
         EscolherCaminho(_canhaoUsado);
     }
 
@@ -41,18 +41,21 @@ public class Municao : MonoBehaviour
                 caminho[1] = GameObject.Find("Caminho0 (1)").transform.position;
                 caminho[2] = GameObject.Find("Caminho0").transform.position;
                 caminho[3] = GameObject.Find("Caminho0 (2)").transform.position;
+                MultiplicadorForcaTiro *= 1f;
                 Seguir();
                 break;
             case 2:
                 caminho[1] = GameObject.Find("Caminho15 (1)").transform.position;
                 caminho[2] = GameObject.Find("Caminho15").transform.position;
-                caminho[3] = GameObject.Find("Caminho15 (2)").transform.position;                
+                caminho[3] = GameObject.Find("Caminho15 (2)").transform.position;
+                MultiplicadorForcaTiro *= 1.2f;
                 Seguir();
                 break;
             case 3:
                 caminho[1] = GameObject.Find("Caminho45 (1)").transform.position;
                 caminho[2] = GameObject.Find("Caminho45").transform.position;
-                caminho[3] = GameObject.Find("Caminho45 (2)").transform.position;                
+                caminho[3] = GameObject.Find("Caminho45 (2)").transform.position;
+                MultiplicadorForcaTiro *= 1.5f;
                 Seguir();
                 break;
 
@@ -66,15 +69,16 @@ public class Municao : MonoBehaviour
     
     void Seguir()
     {
-        transform.DOPath(caminho, forcaTiro, PathType.CatmullRom, PathMode.Sidescroller2D).OnComplete(() => { Destroy(this.gameObject); }) ;
+        
+        transform.DOPath(caminho, forcaTiro *= MultiplicadorForcaTiro, PathType.CatmullRom, PathMode.Sidescroller2D).SetLookAt(0.01f);
     }
-    
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.collider.tag == "Inimigo")
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Inimigo")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
 }

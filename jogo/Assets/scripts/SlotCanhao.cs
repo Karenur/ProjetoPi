@@ -53,7 +53,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
                     canhaoUsado = 1;
                     canhao.transform.DORotate(new Vector3(0, 0, 10), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                     Debug.Log("seguir caminho 1");
-
+                    
 
                 }
                 if (name == "canhao2")
@@ -61,14 +61,14 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
                     canhaoUsado = 2;
                     canhao.transform.DORotate(new Vector3(0, 0, 30), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                     Debug.Log("seguir caminho 2");
-
+                    
                 }
                 if (name == "canhao3")
                 {
                     canhaoUsado = 3;
                     canhao.transform.DORotate(new Vector3(0, 0, 45), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                     Debug.Log("seguir caminho 3");
-
+                                       
                 }
 
 
@@ -77,31 +77,38 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
 
 
     }
+    
     public void Atirar(string nomeCarta_, int slotCanhao_)
     {
-
+        
         if (nomeCarta_ == "escudo(carta)")
-        {
-            Instantiate(bm.municoesDisponiveis[0], saidaCanhao.transform);
+        {            
             Debug.Log("Usando " + slotCanhao_);
-            municao = GameObject.Find(bm.municoesDisponiveis[0].name + "(Clone)").GetComponent<Municao>();
+            GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[0], saidaCanhao.transform).gameObject;
+            municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada, slotCanhao_, "Inimigo");
         }
         if (nomeCarta_ == "lanca(carta)")
-        {
-            Instantiate(bm.municoesDisponiveis[1], saidaCanhao.transform);
+        {            
             Debug.Log("Usando " + slotCanhao_);
-            municao = GameObject.Find(bm.municoesDisponiveis[1].name + "(Clone)").GetComponent<Municao>();            
+            GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[1], saidaCanhao.transform).gameObject;
+            municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada, slotCanhao_, "Inimigo");
         }
         if (nomeCarta_ == "bolaFerro(carta)")
-        {
-
-            Instantiate(bm.municoesDisponiveis[2], saidaCanhao.transform);
+        {            
             Debug.Log("Usando " + slotCanhao_);
-            municao = GameObject.Find(bm.municoesDisponiveis[2].name + "(Clone)").GetComponent<Municao>();
-        }
-
+            GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[2], saidaCanhao.transform).gameObject;
+            municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada,slotCanhao_,"Inimigo");
+        }        
         Debug.Log("Atire " + municao.name);
-        municao._canhaoUsado = slotCanhao_;
+         
+    }
+    public GameObject DefinirCaminhoEAlvo(GameObject municaoAtirada_, int slotCanhao_, string alvo)
+    {
+        municaoAtirada_.GetComponent<Municao>().caminho[0] = GameObject.Find("saidaTiro").transform.position;
+        municaoAtirada_.GetComponent<Municao>().caminho[4] = GameObject.Find("inimigo").transform.position;
+        municaoAtirada_.GetComponent<Municao>().EscolherCaminho(slotCanhao_);
+        municaoAtirada_.GetComponent<Municao>().alvo = "Inimigo";
+        return municaoAtirada_;
     }
 
 }

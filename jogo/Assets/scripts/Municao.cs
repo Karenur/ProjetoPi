@@ -8,6 +8,7 @@ public class Municao : MonoBehaviour
     public float MultiplicadorForcaTiro;
     public float forcaTiro;
     public string slotCanhao;
+    [SerializeField]public string alvo;
     
     public Rigidbody2D rbMunicao;
     public Vector3[] caminho;
@@ -20,10 +21,7 @@ public class Municao : MonoBehaviour
         
         this.gameObject.transform.SetParent(null);
         this.rbMunicao = GetComponent<Rigidbody2D>();
-        this.gameObject.name = (this.gameObject.name+" ");
-        caminho[0] = GameObject.Find("saidaTiro").transform.position;
-        caminho[4] = GameObject.Find("inimigo").transform.position;       
-        EscolherCaminho(_canhaoUsado);
+        this.gameObject.name = (this.gameObject.name+" ");  
     }
 
     // Update is called once per frame
@@ -32,7 +30,7 @@ public class Municao : MonoBehaviour
         
         
     }
-    public void EscolherCaminho(int nCanhao)
+    public  Vector3[] EscolherCaminho(int nCanhao)
     {
         switch (nCanhao)
         {
@@ -41,42 +39,49 @@ public class Municao : MonoBehaviour
                 caminho[1] = GameObject.Find("Caminho0 (1)").transform.position;
                 caminho[2] = GameObject.Find("Caminho0").transform.position;
                 caminho[3] = GameObject.Find("Caminho0 (2)").transform.position;
-                MultiplicadorForcaTiro *= 1f;
+                MultiplicadorForcaTiro = 1f;
                 Seguir();
                 break;
             case 2:
                 caminho[1] = GameObject.Find("Caminho15 (1)").transform.position;
                 caminho[2] = GameObject.Find("Caminho15").transform.position;
                 caminho[3] = GameObject.Find("Caminho15 (2)").transform.position;
-                MultiplicadorForcaTiro *= 1.2f;
+                MultiplicadorForcaTiro = 1.2f;
                 Seguir();
                 break;
             case 3:
                 caminho[1] = GameObject.Find("Caminho45 (1)").transform.position;
                 caminho[2] = GameObject.Find("Caminho45").transform.position;
                 caminho[3] = GameObject.Find("Caminho45 (2)").transform.position;
-                MultiplicadorForcaTiro *= 1.5f;
+                MultiplicadorForcaTiro = 1.5f;
                 Seguir();
                 break;
 
             default:
+                Seguir();
                 break;
         }
         _canhaoUsado = nCanhao;
-
+        return caminho;
     }
 
     
-    void Seguir()
+    public virtual void Seguir()
     {
         
         transform.DOPath(caminho, forcaTiro *= MultiplicadorForcaTiro, PathType.CatmullRom, PathMode.Sidescroller2D).SetLookAt(0.01f);
     }
 
+    public string EscolherAlvo(string alvo_)
+    {
+        return alvo;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Inimigo")
+        if (collision.collider.tag == alvo )
         {
+            
             Destroy(this.gameObject);
         }
     }

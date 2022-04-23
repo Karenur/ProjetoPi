@@ -52,7 +52,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
                 {
                     canhaoUsado = 1;
                     canhao.transform.DORotate(new Vector3(0, 0, 10), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
-                    Debug.Log("seguir caminho 1");
+                    
                     
 
                 }
@@ -60,14 +60,14 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
                 {
                     canhaoUsado = 2;
                     canhao.transform.DORotate(new Vector3(0, 0, 30), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
-                    Debug.Log("seguir caminho 2");
+                    
                     
                 }
                 if (name == "canhao3")
                 {
                     canhaoUsado = 3;
                     canhao.transform.DORotate(new Vector3(0, 0, 45), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
-                    Debug.Log("seguir caminho 3");
+                    
                                        
                 }
 
@@ -83,23 +83,23 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
         
         if (nomeCarta_ == "escudo(carta)")
         {            
-            Debug.Log("Usando " + slotCanhao_);
+            
             GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[0], saidaCanhao.transform).gameObject;
             municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada, slotCanhao_, "Inimigo");
         }
         if (nomeCarta_ == "lanca(carta)")
         {            
-            Debug.Log("Usando " + slotCanhao_);
+           
             GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[1], saidaCanhao.transform).gameObject;
             municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada, slotCanhao_, "Inimigo");
         }
         if (nomeCarta_ == "bolaFerro(carta)")
         {            
-            Debug.Log("Usando " + slotCanhao_);
+            
             GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[2], saidaCanhao.transform).gameObject;
             municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada,slotCanhao_,"Inimigo");
         }        
-        Debug.Log("Atire " + municao.name);
+        
          
     }
     public GameObject DefinirCaminhoEAlvo(GameObject municaoAtirada_, int slotCanhao_, string alvo)

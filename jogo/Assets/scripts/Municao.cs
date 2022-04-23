@@ -8,8 +8,9 @@ public class Municao : MonoBehaviour
     public float MultiplicadorForcaTiro;
     public float forcaTiro;
     public string slotCanhao;
-    [SerializeField]public string alvo;
-    
+    public string alvo;
+    public float dano;
+    [SerializeField] GameObject fraqueza;
     public Rigidbody2D rbMunicao;
     public Vector3[] caminho;
 
@@ -79,11 +80,24 @@ public class Municao : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.collider.tag == alvo )
         {
-            
+
+            collision.collider.GetComponent<ControleVida>().LevarDano(dano);
             Destroy(this.gameObject);
+            
         }
+        if (collision.collider.GetComponent<SpriteRenderer>().name == fraqueza.GetComponent<SpriteRenderer>().name)
+        {
+            Debug.Log($"acertei {collision.collider.name}");
+            this.DOTogglePause();
+            rbMunicao.gravityScale = 1;
+
+
+        }
+
     }
+    
 
 }

@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6741240961222148112, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: dano
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6741240961222148112, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: fraqueza
+      value: 
+      objectReference: {fileID: 7003415236551980017, guid: 8493c04e5bb0fac47a112667b50d7cb5, type: 3}
     - target: {fileID: 73179864544014483, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
       propertyPath: m_Size.x
       value: 4

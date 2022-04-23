@@ -10,8 +10,9 @@ public class ControleInimigo : MonoBehaviour
     [SerializeField]Transform saidaCanhaoInimigo;
     [SerializeField] BancoDeMunicoes bm;
     [SerializeField] GameObject canhaoInimigo;
+    
 
-    Municao municao = new Municao();
+    Municao municao;
 
     [SerializeField] float cadenciaTiro;
     [SerializeField] float cadenciaTiroMaximo;
@@ -83,4 +84,7 @@ public class ControleInimigo : MonoBehaviour
         municaoAtirada.GetComponent<Municao>().Seguir();
         municaoAtirada.GetComponent<Municao>().alvo = "Player";
     }
+
+    
+
 }

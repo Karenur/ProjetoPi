@@ -8,7 +8,7 @@ public class ControleCanhao : MonoBehaviour
     
     public float velocidadeTiro = 1;
     public float podeAtirar;
-
+    public ControleVida controleVida;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class ControleCanhao : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (podeAtirar <= velocidadeTiro)
+        if (podeAtirar <= velocidadeTiro && controleVida.VidaAtual > 0)
         {
             podeAtirar += Time.deltaTime;
         }

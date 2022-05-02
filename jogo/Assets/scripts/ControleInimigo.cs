@@ -10,9 +10,9 @@ public class ControleInimigo : MonoBehaviour
     [SerializeField]Transform saidaCanhaoInimigo;
     [SerializeField] BancoDeMunicoes bm;
     [SerializeField] GameObject canhaoInimigo;
-    
+    [SerializeField] Transform jogador;
+    public ControleVida controleVida;
 
-    Municao municao;
 
     [SerializeField] float cadenciaTiro;
     [SerializeField] float cadenciaTiroMaximo;
@@ -22,23 +22,25 @@ public class ControleInimigo : MonoBehaviour
     void Start()
     {
         caminho_Inimigo[0] = saidaCanhaoInimigo.position;
-        caminho_Inimigo[4] = GameObject.Find("Player_one").transform.position;
+        caminho_Inimigo[4] = jogador.position;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cadenciaTiro <= cadenciaTiroMaximo)
+        if (controleVida.VidaAtual > 0)
         {
-            cadenciaTiro += Time.deltaTime;
+            if (cadenciaTiro <= cadenciaTiroMaximo)
+            {
+                cadenciaTiro += Time.deltaTime;
+            }
+            if (cadenciaTiro >= cadenciaTiroMaximo)
+            {
+                int rnd = Random.Range(1, 4);
+                EscolherCaminho(rnd);
+            }
         }
-        if(cadenciaTiro>= cadenciaTiroMaximo)
-        {
-            int rnd = Random.Range(1, 4);
-            EscolherCaminho(rnd);
-        }
-
     }
 
     public Vector3[] EscolherCaminho(int nCanhao)
@@ -51,7 +53,7 @@ public class ControleInimigo : MonoBehaviour
                 caminho_Inimigo[1] = GameObject.Find("Caminho0 (2)").transform.position;
                 caminho_Inimigo[2] = GameObject.Find("Caminho0").transform.position;
                 caminho_Inimigo[3] = GameObject.Find("Caminho0 (1)").transform.position;
-                this.municao.MultiplicadorForcaTiro = 1f;
+               
                 this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, -10), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
 
 
@@ -60,14 +62,14 @@ public class ControleInimigo : MonoBehaviour
                 caminho_Inimigo[1] = GameObject.Find("Caminho15 (2)").transform.position;
                 caminho_Inimigo[2] = GameObject.Find("Caminho15").transform.position;
                 caminho_Inimigo[3] = GameObject.Find("Caminho15 (1)").transform.position;
-                this.municao.MultiplicadorForcaTiro = 1.2f;
+               
                 this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, -30), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
                 break;
             case 3:
                 caminho_Inimigo[1] = GameObject.Find("Caminho45 (2)").transform.position;
                 caminho_Inimigo[2] = GameObject.Find("Caminho45").transform.position;
                 caminho_Inimigo[3] = GameObject.Find("Caminho45 (1)").transform.position;                
-                this.municao.MultiplicadorForcaTiro = 1.5f;
+                
                 this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, -45), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
                 break;
 

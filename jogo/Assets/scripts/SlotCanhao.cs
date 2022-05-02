@@ -105,7 +105,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
     public GameObject DefinirCaminhoEAlvo(GameObject municaoAtirada_, int slotCanhao_, string alvo)
     {
         municaoAtirada_.GetComponent<Municao>().caminho[0] = GameObject.Find("saidaTiro").transform.position;
-        municaoAtirada_.GetComponent<Municao>().caminho[4] = GameObject.Find("inimigo").transform.position;
+        municaoAtirada_.GetComponent<Municao>().caminho[4] = GameObject.Find("PontoAlvoInimigo").transform.position;
         municaoAtirada_.GetComponent<Municao>().EscolherCaminho(slotCanhao_);
         municaoAtirada_.GetComponent<Municao>().alvo = "Inimigo";
         return municaoAtirada_;

@@ -77,7 +77,7 @@ public class Municao : MonoBehaviour
     {
         return alvo;
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         

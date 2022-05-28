@@ -9,20 +9,30 @@ public class Baralho : Local
     public BancoDeMunicoes bm;
     public List<GameObject> slotMao;
     public List<GameObject> canhaoes;
-
+    public Sprite botaoAberto;
+    public Sprite botaoFechado;
     public int podebaralhar = 0;
-
+    public Button botaoEmbaralhar;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+       
         
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(podebaralhar == 5)
+        {
+            botaoEmbaralhar.GetComponent<Image>().sprite = botaoAberto;
+        }
+        if (podebaralhar == 0)
+        {
+            botaoEmbaralhar.GetComponent<Image>().sprite = botaoFechado;
+        }
     }
 
     public void Embaralhador()

@@ -11,6 +11,9 @@ public class ControleVida : MonoBehaviour
     [SerializeField] float vidaMaxima;
     [SerializeField] float vidaAtual;
 
+    public Sprite vidaVerde;
+    public Sprite vidaAmarela;
+    public Sprite vidaVermelha;
     public float VidaAtual 
     { 
         get => vidaAtual; 
@@ -33,6 +36,19 @@ public class ControleVida : MonoBehaviour
     private void AtualizarBarraVida()
     {
         barraVida.fillAmount = VidaAtual / vidaMaxima;
+        if(vidaAtual>= vidaMaxima-(0.25*vidaMaxima))
+        {
+            barraVida.sprite = vidaVerde;
+        }
+        if (vidaAtual >= vidaMaxima-(0.5*vidaMaxima) && vidaAtual < vidaMaxima-(0.25 * vidaMaxima))
+        {
+            barraVida.sprite = vidaAmarela;
+        }
+        if (vidaAtual >= vidaMaxima - (0.75 * vidaMaxima) && vidaAtual < vidaMaxima - (0.5 * vidaMaxima))
+        {
+            barraVida.sprite = vidaVermelha;
+        }
+
     }
 
     public void LevarDano(float danoLevado)

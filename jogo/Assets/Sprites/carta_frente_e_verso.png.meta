@@ -293,7 +293,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bolaFerro(municao)
+      name: BolaFerro(municao)
       rect:
         serializedVersion: 2
         x: 144
@@ -314,7 +314,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: escudo(municao)
+      name: Escudo(municao)
       rect:
         serializedVersion: 2
         x: 157
@@ -335,7 +335,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lanca(municao)
+      name: Lanca(municao)
       rect:
         serializedVersion: 2
         x: 174
@@ -429,20 +429,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lanca(municao): 457311021
       carta_frente_e_verso_5: 639245416
       carta_verso: -1798871794
+      BolaFerro(municao): 1831964843
       carta_frente_e_verso_8: 1505471328
-      escudo(municao): 555475647
       carta_frente: 136840071
       escudo(carta): -1129174759
       carta_frente_e_verso_2: -1228087989
       carta_frente_e_verso_3: 1630224977
       carta_frente_e_verso_0: 2001911532
       bolaFerro(carta): -1047144445
+      Lanca(municao): 457311021
+      Escudo(municao): 555475647
       carta_frente_e_verso_4: 1658045212
       carta_frente_e_verso_1: 506059911
-      bolaFerro(municao): 1831964843
       lanca(carta): -1399342319
   spritePackingTag: 
   pSDRemoveMatte: 0

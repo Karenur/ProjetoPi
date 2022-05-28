@@ -76,28 +76,24 @@ public class Municao : MonoBehaviour
     public string EscolherAlvo(string alvo_)
     {
         return alvo;
-    }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
+    }    
+  
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (collision.collider.tag == alvo )
+        if (collision.tag == alvo)
         {
-
-            collision.collider.GetComponent<ControleVida>().LevarDano(dano);
+            collision.GetComponent<ControleVida>().LevarDano(dano);
             Destroy(this.gameObject);
-            
         }
-        if (collision.collider.GetComponent<SpriteRenderer>().name == fraqueza.GetComponent<SpriteRenderer>().name)
+        if (collision.gameObject.tag == fraqueza.gameObject.tag)
         {
-            Debug.Log($"acertei {collision.collider.name}");
-            this.DOTogglePause();
+            Debug.Log($"acertei fraqueza {collision.name}");
+            transform.DOPause();
+            
+            rbMunicao.velocity = Vector2.zero;
             rbMunicao.gravityScale = 1;
-
-
         }
-
+        Debug.Log($"acertei {collision.name}");
     }
-    
-
 }

@@ -99,8 +99,6 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
             GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[2], saidaCanhao.transform).gameObject;
             municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada,slotCanhao_,"Inimigo");
         }        
-        
-         
     }
     public GameObject DefinirCaminhoEAlvo(GameObject municaoAtirada_, int slotCanhao_, string alvo)
     {

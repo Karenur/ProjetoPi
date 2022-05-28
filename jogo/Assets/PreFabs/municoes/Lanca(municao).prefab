@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lanca(municao)
       objectReference: {fileID: 0}
+    - target: {fileID: 3646511491944194866, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: m_TagString
+      value: Lanca
+      objectReference: {fileID: 0}
     - target: {fileID: 7188220453530724133, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -116,7 +120,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0040251976, y: 0.00000022300388}

@@ -6,6 +6,7 @@ using TMPro;
 
 public class ControleVitorioa : MonoBehaviour
 {
+    public AudioSource motorJogador;
     public ControleVida vidaInimigo;
     public ControleVida vidaJogador;
     public bool FimJogo = false;
@@ -16,6 +17,7 @@ public class ControleVitorioa : MonoBehaviour
     void Start()
     {
         telaFimGame.SetActive(false);
+        motorJogador.Play();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class ControleVitorioa : MonoBehaviour
         if(vidaJogador.VidaAtual <= 0 || vidaInimigo.VidaAtual <= 0)
         {
             FimJogo = true;
+            motorJogador.Stop();
             telaFimGame.SetActive(true);
             if(vidaJogador.VidaAtual <= 0)
             {

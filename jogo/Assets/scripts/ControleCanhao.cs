@@ -5,7 +5,7 @@ using UnityEngine;
 public class ControleCanhao : MonoBehaviour
 {
 
-    
+ 
     public float velocidadeTiro = 1;
     public float podeAtirar;
     public ControleVida controleVida;

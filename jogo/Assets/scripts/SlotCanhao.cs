@@ -8,7 +8,7 @@ using System;
 
 public class SlotCanhao : MonoBehaviour, IDropHandler
 {
-
+    public List<AudioSource> sonsTiro;
     [SerializeField] private RectTransform _transform;
     public Baralho baralho;
     public BancoDeMunicoes bm;
@@ -51,15 +51,14 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
                 if (name == "canhao1")
                 {
                     canhaoUsado = 1;
-                    canhao.transform.DORotate(new Vector3(0, 0, 10), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
-                    
-                    
+                    canhao.transform.DORotate(new Vector3(0, 0, 5), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
+                                     
 
                 }
                 if (name == "canhao2")
                 {
                     canhaoUsado = 2;
-                    canhao.transform.DORotate(new Vector3(0, 0, 30), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
+                    canhao.transform.DORotate(new Vector3(0, 0, 25), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                     
                     
                 }
@@ -82,22 +81,25 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
     {
         
         if (nomeCarta_ == "escudo(carta)")
-        {            
-            
+        {
+            sonsTiro[2].Play();
             GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[0], saidaCanhao.transform).gameObject;
             municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada, slotCanhao_, "Inimigo");
+            
         }
         if (nomeCarta_ == "lanca(carta)")
-        {            
-           
+        {
+            sonsTiro[0].Play();
             GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[1], saidaCanhao.transform).gameObject;
             municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada, slotCanhao_, "Inimigo");
+            
         }
         if (nomeCarta_ == "bolaFerro(carta)")
-        {            
-            
+        {
+            sonsTiro[1].Play();
             GameObject municaoAtirada = Instantiate(bm.municoesDisponiveis[2], saidaCanhao.transform).gameObject;
             municaoAtirada = DefinirCaminhoEAlvo(municaoAtirada,slotCanhao_,"Inimigo");
+           
         }        
     }
     public GameObject DefinirCaminhoEAlvo(GameObject municaoAtirada_, int slotCanhao_, string alvo)

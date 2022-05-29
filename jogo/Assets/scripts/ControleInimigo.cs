@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class ControleInimigo : MonoBehaviour
 {
-
+    public List<AudioSource> sonsTiro;
     [SerializeField]Vector3[] caminho_Inimigo;
     [SerializeField]Transform saidaCanhaoInimigo;
     [SerializeField] BancoDeMunicoes bm;
     [SerializeField] GameObject canhaoInimigo;
     [SerializeField] Transform jogador;
     public ControleVida controleVida;
+    GameObject controleVitorioa;
 
 
     [SerializeField] float cadenciaTiro;
@@ -21,6 +22,7 @@ public class ControleInimigo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        controleVitorioa = GameObject.Find("ControleVitoria");
         caminho_Inimigo[0] = saidaCanhaoInimigo.position;
         caminho_Inimigo[4] = jogador.position;
         
@@ -37,8 +39,12 @@ public class ControleInimigo : MonoBehaviour
             }
             if (cadenciaTiro >= cadenciaTiroMaximo)
             {
-                int rnd = Random.Range(1, 4);
-                EscolherCaminho(rnd);
+                if (controleVitorioa.gameObject.GetComponent<ControleVitorioa>().FimJogo == false)
+                {
+                    int rnd = Random.Range(1, 4);
+                    EscolherCaminho(rnd);
+                }
+                return;
             }
         }
     }
@@ -53,8 +59,8 @@ public class ControleInimigo : MonoBehaviour
                 caminho_Inimigo[1] = GameObject.Find("Caminho0 (2)").transform.position;
                 caminho_Inimigo[2] = GameObject.Find("Caminho0").transform.position;
                 caminho_Inimigo[3] = GameObject.Find("Caminho0 (1)").transform.position;
-               
-                this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, -10), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
+                sonsTiro[0].Play();
+                this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, 0), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
 
 
                 break;
@@ -62,15 +68,15 @@ public class ControleInimigo : MonoBehaviour
                 caminho_Inimigo[1] = GameObject.Find("Caminho15 (2)").transform.position;
                 caminho_Inimigo[2] = GameObject.Find("Caminho15").transform.position;
                 caminho_Inimigo[3] = GameObject.Find("Caminho15 (1)").transform.position;
-               
-                this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, -30), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
+                sonsTiro[1].Play();
+                this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, -15), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
                 break;
             case 3:
                 caminho_Inimigo[1] = GameObject.Find("Caminho45 (2)").transform.position;
                 caminho_Inimigo[2] = GameObject.Find("Caminho45").transform.position;
-                caminho_Inimigo[3] = GameObject.Find("Caminho45 (1)").transform.position;                
-                
-                this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, -45), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
+                caminho_Inimigo[3] = GameObject.Find("Caminho45 (1)").transform.position;
+                sonsTiro[2].Play();
+                this.canhaoInimigo.transform.DORotate(new Vector3(0, 0, -30), 1, RotateMode.Fast).OnComplete(() => { this.Atirar(); });
                 break;
 
             default:

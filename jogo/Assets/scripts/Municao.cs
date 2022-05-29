@@ -84,6 +84,7 @@ public class Municao : MonoBehaviour
         if (collision.tag == alvo)
         {
             collision.GetComponent<ControleVida>().LevarDano(dano);
+            transform.DOPause();
             Destroy(this.gameObject);
         }
         if (collision.gameObject.tag == fraqueza.gameObject.tag)

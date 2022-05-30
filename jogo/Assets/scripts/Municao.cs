@@ -85,16 +85,20 @@ public class Municao : MonoBehaviour
         {
             collision.GetComponent<ControleVida>().LevarDano(dano);
             transform.DOPause();
-            Destroy(this.gameObject);
+            Destroi();            
         }
         if (collision.gameObject.tag == fraqueza.gameObject.tag)
-        {
-            Debug.Log($"acertei fraqueza {collision.name}");
-            transform.DOPause();
-            
+        {            
+            transform.DOPause();            
             rbMunicao.velocity = Vector2.zero;
             rbMunicao.gravityScale = 1;
+            Invoke("Destroi", 2);
         }
-        Debug.Log($"acertei {collision.name}");
+        
+    }
+
+    public void Destroi()
+    {
+        Destroy(this.gameObject);
     }
 }

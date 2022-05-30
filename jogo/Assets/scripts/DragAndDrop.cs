@@ -13,14 +13,18 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     //public Baralho baralho;
     public Vector2 posInicial;
+    GameObject controleVitorioa;
 
     private void Start()
     {
+        controleVitorioa = GameObject.Find("ControleVitoria");
         _transform = this.GetComponent<RectTransform>();
         _canvasGroup = this.GetComponent<CanvasGroup>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+       
+        
         _canvasGroup.blocksRaycasts = false;
         
         
@@ -33,6 +37,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     }
     public void OnDrag(PointerEventData eventData)
     {
+        if (controleVitorioa.gameObject.GetComponent<ControleVitorioa>().FimJogo == true)
+        {
+            return;
+        }
         _transform.anchoredPosition += eventData.delta;
     }
 
@@ -40,8 +48,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         posInicial = _transform.anchoredPosition;
-
-
     }
 
     public void OnPointerUp(PointerEventData eventData)

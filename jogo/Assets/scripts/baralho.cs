@@ -13,19 +13,20 @@ public class Baralho : Local
     public Sprite botaoFechado;
     public int podebaralhar = 0;
     public Button botaoEmbaralhar;
+    GameObject controleVitorioa;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-       
-        
+        controleVitorioa = GameObject.Find("ControleVitoria");
+
+
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if(podebaralhar == 5)
+    {        
+        if (podebaralhar == 5)
         {
             botaoEmbaralhar.GetComponent<Image>().sprite = botaoAberto;
         }
@@ -37,7 +38,11 @@ public class Baralho : Local
 
     public void Embaralhador()
     {
-        
+        if (controleVitorioa.gameObject.GetComponent<ControleVitorioa>().FimJogo == true)
+        {
+            return;
+        }
+
         if (podebaralhar == 5)
         {
             for (int i = 0; i < slotMao.Count; i++)

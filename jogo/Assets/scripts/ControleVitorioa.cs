@@ -45,7 +45,12 @@ public class ControleVitorioa : MonoBehaviour
 
     public void Jogar()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void AbrirMenu()
+    {
+        SceneManager.LoadScene("MenuInicial");
     }
 
 

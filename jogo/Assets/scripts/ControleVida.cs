@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class ControleVida : MonoBehaviour
 {
+    public AudioSource explosao;
     public ControleVitorioa controleVitoria;
     [SerializeField] Animator anim;
     [SerializeField] Image barraVida;
@@ -14,6 +16,12 @@ public class ControleVida : MonoBehaviour
     public Sprite vidaVerde;
     public Sprite vidaAmarela;
     public Sprite vidaVermelha;
+    public bool jogador;
+
+
+
+    
+
     public float VidaAtual 
     { 
         get => vidaAtual; 
@@ -27,6 +35,7 @@ public class ControleVida : MonoBehaviour
     {
         vidaAtual = vidaMaxima;
         anim = GetComponent<Animator>();
+        
     }
     private void Update()
     {
@@ -53,11 +62,13 @@ public class ControleVida : MonoBehaviour
 
     public void LevarDano(float danoLevado)
     {
+        
         if (controleVitoria.FimJogo == false)
         {
             if (VidaAtual <= danoLevado)
             {
                 VidaAtual = 0;
+                explosao.Play();
                 anim.SetBool("morto", true);
             }
             else

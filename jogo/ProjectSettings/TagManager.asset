@@ -9,6 +9,7 @@ TagManager:
   - BolaFerro
   - Lanca
   - Escudo
+  - CineMachine
   layers:
   - Default
   - TransparentFX

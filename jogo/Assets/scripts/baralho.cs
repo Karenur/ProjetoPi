@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Baralho : Local
 {
-
+    public AudioSource Shuffler;
     public BancoDeMunicoes bm;
     public List<GameObject> slotMao;
     public List<GameObject> canhaoes;
@@ -45,6 +45,7 @@ public class Baralho : Local
 
         if (podebaralhar == 5)
         {
+            Shuffler.Play();
             for (int i = 0; i < slotMao.Count; i++)
             {
                 int rnd = Random.Range(0, bm.cartasDisponiveis.Count);

@@ -8,6 +8,7 @@ using System;
 
 public class SlotCanhao : MonoBehaviour, IDropHandler
 {
+    public AudioSource SomReload;
     public List<AudioSource> sonsTiro;
     [SerializeField] private RectTransform _transform;
     public Baralho baralho;
@@ -51,6 +52,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
                 if (name == "canhao1")
                 {
                     canhaoUsado = 1;
+                    SomReloade();
                     canhao.transform.DORotate(new Vector3(0, 0, 5), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                                      
 
@@ -58,6 +60,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
                 if (name == "canhao2")
                 {
                     canhaoUsado = 2;
+                    SomReloade();
                     canhao.transform.DORotate(new Vector3(0, 0, 25), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                     
                     
@@ -65,6 +68,7 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
                 if (name == "canhao3")
                 {
                     canhaoUsado = 3;
+                    SomReloade();
                     canhao.transform.DORotate(new Vector3(0, 0, 45), velocidadeTiro_, RotateMode.Fast).OnComplete(() => { Atirar(nomeCarta, canhaoUsado); });
                     
                                        
@@ -75,6 +79,10 @@ public class SlotCanhao : MonoBehaviour, IDropHandler
         }
 
 
+    }
+    public void SomReloade()
+    {
+        SomReload.Play();
     }
     
     public void Atirar(string nomeCarta_, int slotCanhao_)

@@ -35,6 +35,14 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2998889786546105678, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0714
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998889786546105678, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3646511491944194866, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
       propertyPath: m_Icon
       value: 
@@ -46,6 +54,14 @@ PrefabInstance:
     - target: {fileID: 3646511491944194866, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
       propertyPath: m_TagString
       value: Lanca
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927238746178852554, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: m_Time
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927238746178852554, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.41803363
       objectReference: {fileID: 0}
     - target: {fileID: 7188220453530724133, guid: 0b9f7bd2d36acb74b9e8039c512bd9f7, type: 3}
       propertyPath: m_RootOrder
